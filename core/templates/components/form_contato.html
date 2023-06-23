@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form_1 pt-120 pb-120">
+	<div class="container px-xl-0">
+		<form action="form-handler.php" method="post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+			<h2 class="mb-40 small text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Crie uma conta</h2>
+			<div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="150">
+				<input type="email" name="email" placeholder="Seu email" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+			</div>
+			<div class="mb-20 input_holder" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+				<input type="password" name="password" placeholder="Sua senha" class="input border-gray focus-action-1 color-heading placeholder-heading w-full" />
+			</div>
+			<div data-aos-duration="600" data-aos="fade-down" data-aos-delay="450">
+				<input type="checkbox" name="rules" class="d-none border-gray focus-action-1" id="form_1_checkbox" checked />
+				<label for="form_1_checkbox" class="mt-25 color-heading w-full">
+					Eu concordo com os termos de serviço
+				</label>
+			</div>
+			<div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
+				<button class="mt-25 btn action-1 w-full">Criar minha conta</button>
+			</div>
+			<div class="mt-50 hr bg-gray h-1" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750"></div>
+			<div class="mt-25 f-18 medium color-heading text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="900">
+				Já possui uma conta? <a href="#" class="link action-1">Entrar</a>
+			</div>
+		</form>
+	</div>
+</section>
+{% endblock %}
