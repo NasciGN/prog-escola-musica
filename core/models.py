@@ -197,7 +197,7 @@ nacionalidade = (
 )
 
 
-class Muscico(models.Model):
+class Musico(models.Model):
     nome = models.CharField(max_length=70)
     nacionalidade = models.CharField(choices=nacionalidade, max_length=20)
     dt_nascimento = models.DateField()
@@ -209,12 +209,13 @@ class Muscico(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Instrumento(models.Model):
-    nome = models.CharField(max_length=50)
+    nome = models.CharField(max_length=60)
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=100)
     n_serie = models.IntegerField()
-    musico = models.OneToOneField(Muscico, null=True, blank=True, on_delete=models.SET_NULL)
+    musico = models.OneToOneField(Musico, null=True, blank=True, on_delete=models.SET_NULL)
     
     class Meta:
         verbose_name = 'Instrumento'
@@ -222,3 +223,45 @@ class Instrumento(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Sinfonia(models.Model):
+    nome = models.CharField(max_length=40)
+    compositor = models.ForeignKey(Musico, on_delete=models.CASCADE)
+    dt_criacao = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Sinfonia'
+        verbose_name_plural = 'Sinfonias'
+
+    def __str__(self):
+        return self.nome
+
+
+class Orquestra(models.Model):
+    nome = models.CharField(max_length=80)
+    cidade = models.CharField(max_length=60)
+    pais = models.CharField(max_length=30)
+    dt_criacao = models.DateTimeField(auto_now_add=True)
+    musicos = models.ManyToManyField(Musico)
+
+    class Meta:
+        verbose_name = 'Orquestras'
+        verbose_name_plural = 'Orquestras'
+
+    def __str__(self):
+        return self.nome
+
+class Apresentacao(models.Model):
+    nome = models.CharField(max_length=60)
+    orquestra = models.ForeignKey(Orquestra, on_delete=models.CASCADE)
+    sinfonia = models.ForeignKey(Sinfonia, on_delete=models.CASCADE)
+    dt_apresentacao = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Apresentação'
+        verbose_name_plural = 'Apresentações'
+
+    def __str__(self):
+        return self.nome
+    
