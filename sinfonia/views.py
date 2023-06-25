@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from core.models import Sinfonia
+from django.views.generic.edit import DeletionMixin
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
@@ -26,7 +27,6 @@ class SinfoniaUpdateView(UpdateView):
     fields = ['nome', 'compositor']
     success_url = reverse_lazy('sinfonia:read')
 
-class SinfoniaDeleteView(DeleteView):
+class SinfoniaDeleteView(DeleteView, DeletionMixin):
     model = Sinfonia
-    template_name = 'sinfonia/excluir_sinfonia.html'
     success_url = reverse_lazy('sinfonia:read')
