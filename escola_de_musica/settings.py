@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'instrumento',
     'orquestra',
     'apresentacao',
+    'musico',
 ]
 
 
