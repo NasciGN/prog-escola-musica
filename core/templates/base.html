@@ -2,105 +2,130 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="utf-8" >
-		<title>Startup 3.0.5 - Project</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="{% static 'i/favicon.png' %}" type="image/x-icon">
-		<!-- Google Fonts -->
-				<link href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
-				<!-- Bootstrap 4.3.1 CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-		<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-		<!-- AOS 2.3.1 jQuery plugin CSS (Animations) -->
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		<!-- FontAwesome CSS -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-		<!-- Startup 3 CSS (Styles for all blocks) -->
-					<link href="{% static  'css/style.css' %}" rel="stylesheet" />
-				<!-- jQuery 3.3.1 -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-			</head> 
-	<body>
+
+<head>
+	<meta charset="utf-8">
+	<title>Startup 3.0.5 - Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="{% static 'i/favicon.png' %}" type="image/x-icon">
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Rubik:100,200,300,400,600,500,700,800,900|Karla:100,200,300,400,500,600,700,800,900&amp;subset=latin"
+		rel="stylesheet">
+	<!-- Bootstrap 4.3.1 CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	<!-- AOS 2.3.1 jQuery plugin CSS (Animations) -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- FontAwesome CSS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<!-- Startup 3 CSS (Styles for all blocks) -->
+	<link href="{% static  'css/style.css' %}" rel="stylesheet" />
+	<!-- jQuery 3.3.1 -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<style>
+		.footer-css {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
 
 
-        {% block content %}
-
-        
-        {% endblock %}
+	{% block content %}
 
 
+	{% endblock %}
 
-<!-- Footer 1 -->
-<footer class="footer_1 bg-light pt-75 pb-65 text-center fixed-bottom">
-	<div class="container px-xl-0">
-		<div class="row justify-content-between align-items-center lh-40 links">
-			<div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-				<a href="#" class="mr-15 link color-main">Sobre</a>
-				<a href="#" class="mx-15 link color-main">Políticas</a>
-				<a href="#" class="mx-15 link color-main">Termos</a>
+
+
+	<!-- Footer 1 -->
+	<footer class="footer_1 bg-light pt-75 pb-65 text-center mt-auto">
+		<div class="container px-xl-0">
+			<div class="row justify-content-between align-items-center lh-40 links">
+				<div class="col-lg-4 col-sm-6 text-sm-right text-lg-left order-1 order-lg-0" data-aos-duration="600"
+					data-aos="fade-down" data-aos-delay="300">
+					<a href="#" class="mr-15 link color-main">Sobre</a>
+					<a href="#" class="mx-15 link color-main">Políticas</a>
+					<a href="#" class="mx-15 link color-main">Termos</a>
+				</div>
+				<div class="mb-10 mb-lg-0 col-lg-auto order-0" data-aos-duration="600" data-aos="fade-down"
+					data-aos-delay="0">
+					<a href="#" class="logo link color-main">MusicSinc</a>
+				</div>
+				<div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" data-aos-duration="600"
+					data-aos="fade-down" data-aos-delay="300">
+					<a href="#" class="mr-15 link color-main">Contato</a>
+					<a href="#" class="mx-15 link color-main"><i class="fab fa-twitter"></i></a>
+					<a href="#" class="mx-15 link color-main"><i class="fab fa-facebook-square"></i></a>
+					<a href="#" class="ml-15 link color-main"><i class="fab fa-google-plus-g"></i></a>
+				</div>
 			</div>
-			<div class="mb-10 mb-lg-0 col-lg-auto order-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<a href="#" class="logo link color-main">MusicSinc</a>
-			</div>
-			<div class="col-lg-4 col-sm-6 text-sm-left text-lg-right order-2 order-lg-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-				<a href="#" class="mr-15 link color-main">Contato</a>
-				<a href="#" class="mx-15 link color-main"><i class="fab fa-twitter"></i></a>
-				<a href="#" class="mx-15 link color-main"><i class="fab fa-facebook-square"></i></a>
-				<a href="#" class="ml-15 link color-main"><i class="fab fa-google-plus-g"></i></a>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<div class="color-heading text-adaptive">
-					Não deixe de dar uma olhada em nossos <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link color-heading">Termos de Uso</a> <br />
-					e <a target="_blank" href="#" class="link color-heading">Políticas de Privacidade</a>
+			<div class="row justify-content-center">
+				<div class="mt-10 col-xl-4 col-lg-5 col-md-6 col-sm-8" data-aos-duration="600" data-aos="fade-down"
+					data-aos-delay="0">
+					<div class="color-heading text-adaptive">
+						Não deixe de dar uma olhada em nossos <a target="_blank"
+							href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link color-heading">Termos de
+							Uso</a> <br />
+						e <a target="_blank" href="#" class="link color-heading">Políticas de Privacidade</a>
+					</div>
 				</div>
 			</div>
 		</div>
+	</footer>
+
+	<!-- forms alerts -->
+	<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		Obrigado pela sua mensagem!
 	</div>
-</footer>
+	<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		Por favor, preencha os campos requeridos.
+	</div>
+	<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+				aria-hidden="true">&times;</span></button>
+		Ocorreu algum erro interno na hora do envio :(
+	</div>
+	<!-- popup with video -->
+	<div class="overlay"></div>
 
-<!-- forms alerts -->
-<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Obrigado pela sua mensagem!
-</div>
-<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Por favor, preencha os campos requeridos.
-</div>
-<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	Ocorreu algum erro interno na hora do envio :(
-</div>
-<!-- popup with video -->
-<div class="overlay"></div>
+	<div class="video_popup">
+		<a class="close">
+			<img src="{% static 'i/close_white@2x.png' %} 2x" src="{% static 'i/close_white.png' %}" alt="" />
+		</a>
+		<div class="d-flex align-items-center justify-content-center w-full h-full iframe_container"></div>
+	</div>
 
-<div class="video_popup">
-	<a class="close">
-		<img src="{% static 'i/close_white@2x.png' %} 2x" src="{% static 'i/close_white.png' %}" alt="" />
-	</a>
-	<div class="d-flex align-items-center justify-content-center w-full h-full iframe_container"></div>
-</div>
-
-<!-- Bootstrap 4.3.1 JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<!-- Google maps JS API -->
-<script type="text/javascript' %}"" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
-<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
-<script type="text/javascript' %}"" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
-<script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
-<!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="{% static 'js/script.js' %}"></script>
+	<!-- Bootstrap 4.3.1 JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<!-- Google maps JS API -->
+	<script type="text/javascript' %}"" src="
+		https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
+	<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
+	<script type="text/javascript' %}"" src="
+		https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
+	<script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+	<!-- Startup 3 JS (Custom js for all blocks) -->
+	<script src="{% static 'js/script.js' %}"></script>
 
 </body>
+
 </html>
