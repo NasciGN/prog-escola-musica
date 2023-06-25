@@ -1,7 +1,4 @@
 {% extends "base.html" %} 
-
-
-
 {% block content %} 
 {% include 'components/nav_tables.html' %}
 <style>
@@ -25,18 +22,17 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        <th scope="col">Nacionalidade</th>
-        <th scope="col">Dt. Nascimento</th>
+        <th scope="col">Compositor</th>
+        <th scope="col">Dt. Criação</th>
       </tr>
     </thead>
     <tbody>
+      {% for sinf in sinfonias %}
       <tr>
-        <th scope="row">1</th>
-        <td>John Doe</td>
-        <td>30</td>
-        <td>23/11/2002</td>
+        <td>{{ sinf.nome }}</td>
+        <td>{{ sinf.compositor }}</td>
+        <td>{{ sinf.dt_criacao }}</td>
         <td>
           <button class="btn btn-link edit-btn" title="Editar">
             <i class="fas fa-edit"></i>
@@ -46,6 +42,13 @@
           </button>
         </td>
       </tr>
+      {% empty %}
+      <tr>
+        <td>
+          <h4>Nada aqui para ver</h4>
+        </td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>

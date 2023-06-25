@@ -4502,6 +4502,7 @@ b, strong {
 .ecommerce_36 .total {
   min-width: 70px;
 }
+
 @media (max-width: 1199.98px) {
   .ecommerce_36 .total {
     min-width: 65px;
