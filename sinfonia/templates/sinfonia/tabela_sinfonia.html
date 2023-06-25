@@ -34,23 +34,26 @@
         <td>{{ sinf.compositor }}</td>
         <td>{{ sinf.dt_criacao }}</td>
         <td>
-          <button class="btn btn-link edit-btn" title="Editar">
+          <a href="{% url 'sinfonia:update' sinf.id %}" class="btn btn-link edit-btn" title="Editar">
             <i class="fas fa-edit"></i>
-          </button>
-          <button class="btn btn-link delete-btn" title="Excluir">
+          </a>
+          <a href="{% url 'sinfonia:delete' sinf.id %}" class="btn btn-link delete-btn" title="Excluir">
             <i class="fas fa-trash-alt"></i>
-          </button>
+          </a>
         </td>
       </tr>
       {% empty %}
       <tr>
-        <td>
+        <td colspan="4" class="text-center">
           <h4>Nada aqui para ver</h4>
         </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  <div class="col-12 d-flex justify-content-center mt-16">
+    <a href="{% url 'sinfonia:create' %}" class="btn sm action-2 f-16">Adicionar</a>
+  </div>
 </div>
 
 {% endblock %}
