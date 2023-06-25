@@ -19,3 +19,14 @@ class SinfoniaCreateView(CreateView):
     template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor',]
     success_url = reverse_lazy('read')
+
+class SinfoniaUpdateView(UpdateView):
+    model = Sinfonia
+    template_name = 'sinfonia/editar_sinfonia.html'
+    fields = ['nome', 'compositor']
+    success_url = reverse_lazy('sinfonia:read')
+
+class SinfoniaDeleteView(DeleteView):
+    model = Sinfonia
+    template_name = 'sinfonia/excluir_sinfonia.html'
+    success_url = reverse_lazy('sinfonia:read')
