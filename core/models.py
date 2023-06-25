@@ -256,7 +256,8 @@ class Apresentacao(models.Model):
     nome = models.CharField(max_length=60)
     orquestra = models.ForeignKey(Orquestra, on_delete=models.CASCADE)
     sinfonia = models.ForeignKey(Sinfonia, on_delete=models.CASCADE)
-    dt_apresentacao = models.DateTimeField(auto_now_add=True)
+    dt_apresentacao = models.DateField(default='01/01/2024')
+    hr_apresentacao = models.TimeField(default='00:00:00')
 
     class Meta:
         verbose_name = 'Apresentação'

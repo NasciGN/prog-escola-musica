@@ -1,13 +1,8 @@
 from django.urls import reverse_lazy
-from django.db.models.query import QuerySet
-from django.shortcuts import render
 from core.models import Sinfonia
 from django.shortcuts import redirect
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-# Create your views here.
-
-from django.shortcuts import render
 from django.views.generic import ListView
 
 class SinfoniaListView(ListView):

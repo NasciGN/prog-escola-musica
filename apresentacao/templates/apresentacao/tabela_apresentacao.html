@@ -1,0 +1,61 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% include 'components/nav_tables.html' %}
+<style>
+  .edit-btn {
+    color: #1b80eb;
+  }
+
+  .edit-btn:hover {
+    color: #11559e;
+  }
+
+  .delete-btn {
+    color: #e23a4b;
+  }
+
+  .delete-btn:hover {
+    color: #a82532;
+  }
+</style>
+<div class="container table-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Orquestra</th>
+        <th scope="col">Sinfonia</th>
+        <th scope="col">Dt. Apresentação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in apresentacoes %}
+      <tr>
+        <td>{{ a.nome }}</td>
+        <td>{{ a.orquestra }}</td>
+        <td>{{ a.sinfonia }}</td>
+        <td>{{ a.dt_apresentacao }}</td>
+        <td>
+          <a href="{% url 'apresentacao:update' a.id %}" class="btn btn-link edit-btn" title="Editar">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a href="{% url 'apresentacao:delete' a.id %}" class="btn btn-link delete-btn" title="Excluir">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">
+          <h4>Nada aqui para ver</h4>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="col-12 d-flex justify-content-center mt-16">
+    <a href="{% url 'apresentacao:create' %}" class="btn sm action-2 f-16">Adicionar</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% include 'components/nav_tables.html' %}
+
+<script>
+    $(document).ready(function() {
+        $('#{{ widget.attrs.id }}').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            sideBySide: true,
+            icons: {
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down',
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-crosshairs',
+                clear: 'fa fa-trash',
+                close: 'fa fa-times'
+            }
+        });
+    });
+    </script>
+
+<div class="col-12 d-flex flex-column align-items-center my-4">
+    <h3 class="text-center mb-4">Apresentações | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+    <div class="mt-4">
+        <form method="post" action="{% if object %}{% url 'apresentacao:update' object.pk %}{% else %}{% url 'apresentacao:create' %}{% endif %}" class="w-100">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.nome.id_for_label }}">Nome</label>
+                {{ form.nome }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.orquestra.id_for_label }}">Orquestra</label>
+                {{ form.orquestra }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.sinfonia.id_for_label }}">Sinfonia</label>
+                {{ form.sinfonia }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.sinfonia.id_for_label }}">Data e Hora</label>
+                {{ form.dt_apresentacao }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.sinfonia.id_for_label }}">Data e Hora</label>
+                {{ form.hr_apresentacao }}
+            </div>
+
+            <div class="d-flex justify-content-center mt-5">
+                <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
+
+                <a href="{% url 'apresentacao:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .salvar-btn.btn-primary {
+        background-color: #1b80eb; 
+        border-color: #1b80eb;
+    }
+    
+    .salvar-btn.btn-primary:hover {
+        background-color: #11559e;
+        border-color: #11559e;
+    }
+
+    .cancelar-btn.btn-danger {
+        background-color: #e23a4b;
+        border-color: #e23a4b;
+    }
+
+    .cancelar-btn.btn-danger:hover {
+        background-color: #a82532;
+        border-color: #a82532;
+    }
+</style>
+
+{% endblock %}

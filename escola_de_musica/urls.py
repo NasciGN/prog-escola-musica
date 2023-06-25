@@ -27,6 +27,7 @@ urlpatterns = [
     path('sinfonia/', include('sinfonia.urls')),
     path('instrumentos/', include('instrumento.urls')),
     path('orquestras/', include('orquestra.urls')),
+    path('apresentacoes/', include('apresentacao.urls')),
 ] 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

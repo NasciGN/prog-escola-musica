@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sinfonia',
     'instrumento',
     'orquestra',
+    'apresentacao',
 ]
 
 
