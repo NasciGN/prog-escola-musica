@@ -26,7 +26,9 @@ class SinfoniaUpdateView(UpdateView):
     template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor']
     success_url = reverse_lazy('sinfonia:read')
+    slug_field = 'id'
 
-class SinfoniaDeleteView(DeleteView, DeletionMixin):
+class SinfoniaDeleteView(DeleteView):
     model = Sinfonia
     success_url = reverse_lazy('sinfonia:read')
+
