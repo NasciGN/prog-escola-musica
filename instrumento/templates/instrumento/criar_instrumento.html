@@ -3,9 +3,9 @@
 {% include 'components/nav_tables.html' %}
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
-    <h3 class="text-center mb-4">Sinfonias | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+    <h3 class="text-center mb-4">Instrumentos | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
     <div class="mt-4">
-        <form method="post" action="{% if object %}{% url 'sinfonia:update' object.pk %}{% else %}{% url 'sinfonia:create' %}{% endif %}" class="w-100">
+        <form method="post" action="{% if object %}{% url 'instrumento:update' object.pk %}{% else %}{% url 'instrumento:create' %}{% endif %}" class="w-100">
             {% csrf_token %}
             <div class="form-group">
                 <label for="{{ form.nome.id_for_label }}">Nome</label>
@@ -13,14 +13,29 @@
             </div>
 
             <div class="form-group">
-                <label for="{{ form.compositor.id_for_label }}">Compositor</label>
-                {{ form.compositor }}
+                <label for="{{ form.marca.id_for_label }}">Marca</label>
+                {{ form.marca }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.modelo.id_for_label }}">Modelo</label>
+                {{ form.modelo }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.n_serie.id_for_label }}">N. Série</label>
+                {{ form.n_serie }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.musico.id_for_label }}">Usado por</label>
+                {{ form.musico }}
             </div>
 
             <div class="d-flex justify-content-center mt-5">
                 <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
 
-                <a href="{% url 'sinfonia:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+                <a href="{% url 'instrumento:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
             </div>
         </form>
     </div>

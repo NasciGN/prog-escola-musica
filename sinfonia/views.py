@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from core.models import Sinfonia
-from django.views.generic.edit import DeletionMixin
+from django.shortcuts import redirect
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
@@ -31,4 +31,15 @@ class SinfoniaUpdateView(UpdateView):
 class SinfoniaDeleteView(DeleteView):
     model = Sinfonia
     success_url = reverse_lazy('sinfonia:read')
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return redirect(self.get_success_url())
+
 
