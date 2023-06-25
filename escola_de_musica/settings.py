@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'sinfonia',
     'instrumento',
+    'orquestra',
 ]
 
 

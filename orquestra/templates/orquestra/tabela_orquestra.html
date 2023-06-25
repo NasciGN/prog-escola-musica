@@ -1,0 +1,67 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% include 'components/nav_tables.html' %}
+<style>
+  .edit-btn {
+    color: #1b80eb;
+  }
+
+  .edit-btn:hover {
+    color: #11559e;
+  }
+
+  .delete-btn {
+    color: #e23a4b;
+  }
+
+  .delete-btn:hover {
+    color: #a82532;
+  }
+</style>
+<div class="container table-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">País</th>
+        <th scope="col">Músicos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for orquestra in orquestras %}
+      <tr>
+        <td>{{ orquestra.nome }}</td>
+        <td>{{ orquestra.cidade }}</td>
+        <td>{{ orquestra.pais }}</td>
+        <td>
+            {% for musico in orquestra.musicos.all %}
+                {{ musico.nome }}
+                {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+
+        </td>
+        <td>
+          <a href="{% url 'orquestra:update' orquestra.id %}" class="btn btn-link edit-btn" title="Editar">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a href="{% url 'orquestra:delete' orquestra.id %}" class="btn btn-link delete-btn" title="Excluir">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">
+          <h4>Nada aqui para ver</h4>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="col-12 d-flex justify-content-center mt-16">
+    <a href="{% url 'orquestra:create' %}" class="btn sm action-2 f-16">Adicionar</a>
+  </div>
+</div>
+
+{% endblock %}
