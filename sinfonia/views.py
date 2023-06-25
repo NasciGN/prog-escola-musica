@@ -18,11 +18,11 @@ class SinfoniaCreateView(CreateView):
     model = Sinfonia
     template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor',]
-    success_url = reverse_lazy('read')
+    success_url = reverse_lazy('sinfonia:read')
 
 class SinfoniaUpdateView(UpdateView):
     model = Sinfonia
-    template_name = 'sinfonia/editar_sinfonia.html'
+    template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor']
     success_url = reverse_lazy('sinfonia:read')
 
