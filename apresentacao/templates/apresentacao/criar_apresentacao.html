@@ -23,41 +23,50 @@
     </script>
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
-    <h3 class="text-center mb-4">Apresentações | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+    <div class="col-md-6">
+        <h3 class="text-center mb-4">Apresentações | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
     <div class="mt-4">
-        <form method="post" action="{% if object %}{% url 'apresentacao:update' object.pk %}{% else %}{% url 'apresentacao:create' %}{% endif %}" class="w-100">
+        <form method="post" action="{% if object %}{% url 'apresentacao:update' object.pk %}{% else %}{% url 'apresentacao:create' %}{% endif %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="{{ form.nome.id_for_label }}">Nome</label>
-                {{ form.nome }}
+                <input class="form-control" id="{{ form.nome.id_for_label }}" type="text"
+                    placeholder="Nome" name="{{ form.nome.html_name }}" {% if form.nome.value %}
+                    value="{{ form.nome.value }}" {% endif %}>
             </div>
 
             <div class="form-group">
                 <label for="{{ form.orquestra.id_for_label }}">Orquestra</label>
-                {{ form.orquestra }}
+                <select class="form-control" id="{{ form.orquestra.id_for_label }}" name="{{ form.orquestra.html_name }}">
+                    {% for orquestra in form.orquestra.field.choices %}
+                        <option value="{{ orquestra.0 }}" {% if orquestra.0 == form.orquestra.value %}selected{% endif %}>{{ orquestra.1 }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="{{ form.sinfonia.id_for_label }}">Sinfonia</label>
-                {{ form.sinfonia }}
+                <select class="form-control" id="{{ form.sinfonia.id_for_label }}" name="{{ form.sinfonia.html_name }}">
+                    {% for sinfonia in form.sinfonia.field.choices %}
+                        <option value="{{ sinfonia.0 }}" {% if sinfonia.0 == form.sinfonia.value %}selected{% endif %}>{{ sinfonia.1 }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="{{ form.sinfonia.id_for_label }}">Data e Hora</label>
-                {{ form.dt_apresentacao }}
+                <label for="{{ form.dthr_apresentacao.id_for_label }}">Data e Hora</label>
+                <input class="form-control" id="{{ form.dthr_apresentacao.id_for_label }}" type="datetime-local"
+                    placeholder="Nome" name="{{ form.dthr_apresentacao.html_name }}" {% if form.dthr_apresentacao.value %}
+                    value="{{ form.dthr_apresentacao.value }}" {% endif %}>
             </div>
-            
-            <div class="form-group">
-                <label for="{{ form.sinfonia.id_for_label }}">Data e Hora</label>
-                {{ form.hr_apresentacao }}
-            </div>
-
-            <div class="d-flex justify-content-center mt-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{% url 'apresentacao:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
                 <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
 
-                <a href="{% url 'apresentacao:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+                
             </div>
         </form>
+    </div>
     </div>
 </div>
 

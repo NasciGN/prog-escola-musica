@@ -14,14 +14,14 @@ class ApresentacaoListView(LoginRequiredMixin, ListView):
 class ApresentacaoCreateView(LoginRequiredMixin, CreateView):
     model = Apresentacao
     template_name = 'apresentacao/criar_apresentacao.html'
-    fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao', 'hr_apresentacao']
+    fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao']
     success_url = reverse_lazy('apresentacao:read')
     login_url='login'
 
 class ApresentacaoUpdateView(LoginRequiredMixin, UpdateView):
     model = Apresentacao
     template_name = 'apresentacao/criar_apresentacao.html'
-    fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao', 'hr_apresentacao']
+    fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao']
     success_url = reverse_lazy('apresentacao:read')
     slug_field = 'id'
     login_url='login'
