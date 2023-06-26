@@ -3,31 +3,40 @@
 {% include 'components/nav_tables.html' %}
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
-    <h3 class="text-center mb-4">Musicos | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
-    <div class="mt-4">
-        <form method="post" action="{% if object %}{% url 'musico:update' object.pk %}{% else %}{% url 'musico:create' %}{% endif %}" class="w-100">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="{{ form.nome.id_for_label }}">Nome</label>
-                {{ form.nome }}
-            </div>
+    <div class="col-md-6">
+        <h3 class="text-center mb-4">Musicos | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+        <div class="mt-4">
+            <form method="post" action="{% if object %}{% url 'musico:update' object.pk %}{% else %}{% url 'musico:create' %}{% endif %}" class="align-items-left">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.nome.id_for_label }}">Nome</label>
+                    <input class="form-control" id="{{ form.nome.id_for_label }}" type="text"
+                    placeholder="Nome" name="{{ form.nome.html_name }}" {% if form.nome.value %}
+                    value="{{ form.nome.value }}" {% endif %}>
+                </div>
 
-            <div class="form-group">
-                <label for="{{ form.nacionalidade.id_for_label }}">Nacionalidade</label>
-                {{ form.nacionalidade }}
-            </div>
+                <div class="form-group">
+                    <label for="{{ form.nacionalidade.id_for_label }}">Nacionalidade</label>
+                    <select class="form-control" id="{{ form.nacionalidade.id_for_label }}" name="{{ form.nacionalidade.html_name }}">
+                        {% for choice in form.nacionalidade.field.choices %}
+                            <option value="{{ choice.0 }}" {% if choice.0 == form.nacionalidade.value %}selected{% endif %}>{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="{{ form.dt_nascimento.id_for_label }}">Dt. Nascimento</label>
-                {{ form.dt_nascimento }}
-            </div>
+                <div class="form-group">
+                    <label for="{{ form.dt_nascimento.id_for_label }}">Dt. Nascimento</label>
+                    <input class="form-control" id="{{ form.dt_nascimento.id_for_label }}" type="date"
+                    placeholder="01/01/2023" name="{{ form.dt_nascimento.html_name }}" {% if form.nome.value %}
+                    value="{{ form.dt_nascimento.value }}" {% endif %}>
+                </div>
 
-            <div class="d-flex justify-content-center mt-5">
-                <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
-
-                <a href="{% url 'musico:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
-            </div>
-        </form>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{% url 'musico:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+                    <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
