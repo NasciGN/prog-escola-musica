@@ -3,26 +3,33 @@
 {% include 'components/nav_tables.html' %}
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
-    <h3 class="text-center mb-4">Sinfonias | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+    <div class="col-md-6">
+        <h3 class="text-center mb-4">Sinfonias | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
     <div class="mt-4">
-        <form method="post" action="{% if object %}{% url 'sinfonia:update' object.pk %}{% else %}{% url 'sinfonia:create' %}{% endif %}" class="w-100">
+        <form method="post" action="{% if object %}{% url 'sinfonia:update' object.pk %}{% else %}{% url 'sinfonia:create' %}{% endif %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="{{ form.nome.id_for_label }}">Nome</label>
-                {{ form.nome }}
+                <input class="form-control" id="{{ form.nome.id_for_label }}" type="text"
+                    placeholder="Nome" name="{{ form.nome.html_name }}" {% if form.nome.value %}
+                    value="{{ form.nome.value }}" {% endif %}>
             </div>
 
             <div class="form-group">
                 <label for="{{ form.compositor.id_for_label }}">Compositor</label>
-                {{ form.compositor }}
+                <select class="form-control" id="{{ form.musico.id_for_label }}" name="{{ form.compositor.html_name }}">
+                    {% for compositor in form.compositor.field.choices %}
+                        <option value="{{ compositor.0 }}" {% if compositor.0 == form.compositor.value %}selected{% endif %}>{{ compositor.1 }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
-            <div class="d-flex justify-content-center mt-5">
-                <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
-
+            <div class="d-flex justify-content-between align-items-center">
                 <a href="{% url 'sinfonia:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+                <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
             </div>
         </form>
+    </div>
     </div>
 </div>
 

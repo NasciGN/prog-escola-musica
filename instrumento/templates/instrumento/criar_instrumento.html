@@ -18,21 +18,21 @@
             <div class="form-group">
                 <label for="{{ form.marca.id_for_label }}">Marca</label>
                 <input class="form-control" id="{{ form.marca.id_for_label }}" type="text"
-                    placeholder="Nome" name="{{ form.marca.html_name }}" {% if form.marca.value %}
+                    placeholder="Marca" name="{{ form.marca.html_name }}" {% if form.marca.value %}
                     value="{{ form.marca.value }}" {% endif %}>
             </div>
 
             <div class="form-group">
                 <label for="{{ form.modelo.id_for_label }}">Modelo</label>
                 <input class="form-control" id="{{ form.modelo.id_for_label }}" type="text"
-                    placeholder="Nome" name="{{ form.modelo.html_name }}" {% if form.modelo.value %}
+                    placeholder="Modelo" name="{{ form.modelo.html_name }}" {% if form.modelo.value %}
                     value="{{ form.modelo.value }}" {% endif %}>
             </div>
 
             <div class="form-group">
                 <label for="{{ form.n_serie.id_for_label }}">N. Série</label>
                 <input class="form-control" id="{{ form.n_serie.id_for_label }}" type="number" step="1"
-                    placeholder="Nome" name="{{ form.n_serie.html_name }}" {% if form.n_serie.value %}
+                    placeholder="N. Série" name="{{ form.n_serie.html_name }}" {% if form.n_serie.value %}
                     value="{{ form.n_serie.value }}" {% endif %}>
             </div>
 

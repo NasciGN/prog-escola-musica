@@ -1,5 +1,13 @@
 # Escola de Música
 
+
+***
+[Teste o sistema clicando aqui.](https://youtube.com/)
+
+Usuário: admin
+Senha: admin
+***
+
 ## Sobre a atividade
 
 Este é um projeto de um sistema web desenvolvido em Django e Bootstrap/HTML, criado para gerenciar orquestras, músicos, instrumentos, apresentações, sinfonias e suas respectivas associações.
@@ -30,6 +38,12 @@ Este é um projeto de um sistema web desenvolvido em Django e Bootstrap/HTML, cr
 
 ### Usuário comum
 
+***
+### Usuario de teste
+Usuário: teste-usuario
+Senha: alunoifro
+***
+
 O usuário comum é aquele que cria sua conta pela inteface de login do site. Todo usuário criado pela interface do site por padrão possui as permissões de usuário comum.  
 
 Este usuário tem permissão para realizar o CRUD completo nas seguintes models:
@@ -43,6 +57,12 @@ Para as outras duas models (Músicos e Sinfonias), este usuário só tem permiss
 ***
 
 ### Usuário com cargo de Professor.
+
+***
+### Usuario de teste
+Usuário: teste-professor
+Senha: alunoifro
+***
 
 Este usuário está no grupo de professores.  
 O grupo de professores tem permissão para realizar o CRUD em todas as models do projeto, porém não tem permissão para acessar o painel de administração do site.  
