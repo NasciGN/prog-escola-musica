@@ -3,36 +3,47 @@
 {% include 'components/nav_tables.html' %}
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
-    <h3 class="text-center mb-4">Orquestras | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
-    <div class="mt-4">
-        <form method="post" action="{% if object %}{% url 'orquestra:update' object.pk %}{% else %}{% url 'orquestra:create' %}{% endif %}" class="w-100">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="{{ form.nome.id_for_label }}">Nome</label>
-                {{ form.nome }}
-            </div>
+    <div class="col-md-6">
+        <h3 class="text-center mb-4">Orquestras | {% if object %}Editar{% else %}Adicionar{% endif %}</h3>
+        <div class="mt-4">
+            <form method="post" action="{% if object %}{% url 'orquestra:update' object.pk %}{% else %}{% url 'orquestra:create' %}{% endif %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.nome.id_for_label }}">Nome</label>
+                    <input class="form-control" id="{{ form.nome.id_for_label }}" type="text"
+                        placeholder="Nome" name="{{ form.nome.html_name }}" {% if form.nome.value %}
+                        value="{{ form.nome.value }}" {% endif %}>
+                </div>
 
-            <div class="form-group">
-                <label for="{{ form.compositor.id_for_label }}">Cidade</label>
-                {{ form.cidade }}
-            </div>
+                <div class="form-group">
+                    <label for="{{ form.cidade.id_for_label }}">Cidade</label>
+                    <input class="form-control" id="{{ form.cidade.id_for_label }}" type="text"
+                        placeholder="Cidade" name="{{ form.cidade.html_name }}" {% if form.cidade.value %}
+                        value="{{ form.cidade.value }}" {% endif %}>  
+                </div>
 
-            <div class="form-group">
-                <label for="{{ form.compositor.id_for_label }}">País</label>
-                {{ form.pais }}
-            </div>
+                <div class="form-group">
+                    <label for="{{ form.pais.id_for_label }}">País</label>
+                    <input class="form-control" id="{{ form.pais.id_for_label }}" type="text"
+                        placeholder="País" name="{{ form.pais.html_name }}" {% if form.pais.value %}
+                        value="{{ form.pais.value }}" {% endif %}>  
+                </div>
 
-            <div class="form-group">
-                <label for="{{ form.compositor.id_for_label }}">Músicos</label>
-                {{ form.musicos }}
-            </div>
+                <div class="form-group">
+                    <label for="{{ form.musicos.id_for_label }}">Membros</label>
+                    <select class="form-control" id="{{ form.musicos.id_for_label }}" name="{{ form.musicos.html_name }}" multiple>
+                        {% for musicos in form.musicos.field.choices %}
+                            <option value="{{ musicos.0 }}" {% if choice.0 in form.musicos.value %}selected{% endif %}>{{ musicos.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <div class="d-flex justify-content-center mt-5">
-                <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
-
-                <a href="{% url 'orquestra:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
-            </div>
-        </form>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="{% url 'orquestra:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
+                    <button type="submit" class="btn btn-primary salvar-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
