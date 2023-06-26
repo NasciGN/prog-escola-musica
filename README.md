@@ -36,21 +36,15 @@ Para as outras duas models (Músicos e Sinfonias), este usuário só tem permiss
 ### Usuário com cargo de Professor.
 
 Este usuário está no grupo de professores.  
-
 O grupo de professores tem permissão para realizar o CRUD em todas as models do projeto, porém não tem permissão para acessar o painel de administração do site.  
-
 Para que um usuário faça parte do grupo de professores é necessário que um administrador, através do painel de administração do site, atribua o grupo de professores para esse usuário.  
-
 Somente um administrador pode realizar tal modificação.
 
 ### Administrador
 
 Um administrador tem acesso total as funcionalidades do site.  
-
 Ao logar pela interface do site, um novo campo no menu de navegação é exibido com o nome de 'Administração'.  
-
 Ele dá acesso ao painel de administração do Django. É lá que alterações de permissões, como a de colocar um usuário no grupo de professores, serão feitas.  
-
 Somente um administrador, nativamente, tem a permissão de acesso dessa página, e somente ele pode adicionar outros administradores.
 
 ## Configuração do Ambiente
