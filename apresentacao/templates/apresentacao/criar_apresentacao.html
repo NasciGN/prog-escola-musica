@@ -54,10 +54,11 @@
             </div>
 
             <div class="form-group">
-                <label for="{{ form.dthr_apresentacao.id_for_label }}">Data e Hora</label>
-                <input class="form-control" id="{{ form.dthr_apresentacao.id_for_label }}" type="datetime-local"
-                    placeholder="Nome" name="{{ form.dthr_apresentacao.html_name }}" {% if form.dthr_apresentacao.value %}
-                    value="{{ form.dthr_apresentacao.value }}" {% endif %}>
+                <label for="{{ form.dt_apresentacao.id_for_label }}">Data e Hora</label>
+                <input class="form-control" id="{{ form.dt_apresentacao.id_for_label }}" type="datetime-local"
+                    placeholder="Dt. Apresentação" name="{{ form.dt_apresentacao.html_name }}" {% if form.dt_apresentacao.value %}
+                    value="{{ form.dt_apresentacao.value }}" {% endif %}>
+                    
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <a href="{% url 'apresentacao:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
