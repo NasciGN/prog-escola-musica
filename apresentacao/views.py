@@ -1,3 +1,4 @@
+from django import forms
 from django.urls import reverse_lazy
 from core.models import Apresentacao
 from django.shortcuts import redirect
@@ -18,10 +19,18 @@ class ApresentacaoCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('apresentacao:read')
     login_url='login'
 
+class ApresentacaoForm(forms.ModelForm):
+    class Meta:
+        model = Apresentacao
+        fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao']
+        widgets = {
+            'dt_apresentacao': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+
 class ApresentacaoUpdateView(LoginRequiredMixin, UpdateView):
     model = Apresentacao
     template_name = 'apresentacao/criar_apresentacao.html'
-    fields = ['nome', 'orquestra', 'sinfonia', 'dt_apresentacao']
+    form_class = ApresentacaoForm
     success_url = reverse_lazy('apresentacao:read')
     slug_field = 'id'
     login_url='login'

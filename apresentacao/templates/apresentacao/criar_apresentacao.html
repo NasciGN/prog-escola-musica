@@ -2,25 +2,7 @@
 {% block content %} 
 {% include 'components/nav_tables.html' %}
 
-<script>
-    $(document).ready(function() {
-        $('#{{ widget.attrs.id }}').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            sideBySide: true,
-            icons: {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-chevron-up',
-                down: 'fa fa-chevron-down',
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-crosshairs',
-                clear: 'fa fa-trash',
-                close: 'fa fa-times'
-            }
-        });
-    });
-    </script>
+
 
 <div class="col-12 d-flex flex-column align-items-center my-4">
     <div class="col-md-6">
@@ -57,7 +39,7 @@
                 <label for="{{ form.dt_apresentacao.id_for_label }}">Data e Hora</label>
                 <input class="form-control" id="{{ form.dt_apresentacao.id_for_label }}" type="datetime-local"
                     placeholder="Dt. Apresentação" name="{{ form.dt_apresentacao.html_name }}" {% if form.dt_apresentacao.value %}
-                    value="{{ form.dt_apresentacao.value }}" {% endif %}>
+                    value="{{ form.initial.dt_apresentacao.value|date:'Y-m-d\TH:i' }}" {% endif %}>
                     
             </div>
             <div class="d-flex justify-content-between align-items-center">
