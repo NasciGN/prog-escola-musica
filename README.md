@@ -23,7 +23,8 @@ Este é um projeto de um sistema web desenvolvido em Django e Bootstrap/HTML, cr
 
 ### Usuário comum
 
-O usuário comum é aquele que cria sua conta pela inteface de login do site. Todo usuário criado pela interface do site por padrão possui as permissões de usuário comum
+O usuário comum é aquele que cria sua conta pela inteface de login do site. Todo usuário criado pela interface do site por padrão possui as permissões de usuário comum.  
+
 Este usuário tem permissão para realizar o CRUD completo nas seguintes models:
 
 - Apresentação
