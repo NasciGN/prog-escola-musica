@@ -17,6 +17,35 @@ Este é um projeto de um sistema web desenvolvido em Django e Bootstrap/HTML, cr
 - Django: Framework web em Python para o desenvolvimento do backend.
 - Bootstrap/HTML: Utilizados para criar o frontend responsivo e amigável ao usuário.
 
+## Permissões
+
+- O sistema foi planejado com algumas permissões específicas para cada usuário.
+
+### Usuário comum
+
+O usuário comum é aquele que cria sua conta pela inteface de login do site. Todo usuário criado pela interface do site por padrão possui as permissões de usuário comum
+Este usuário tem permissão para realizar o CRUD completo nas seguintes models:
+
+- Apresentação
+- Instrumento
+- Orquestra
+
+Para as outras duas models (Músicos e Sinfonias), este usuário só tem permissão de visualização.
+
+### Usuário com cargo de Professor.
+
+Este usuário está no grupo de professores.
+O grupo de professores tem permissão para realizar o CRUD em todas as models do projeto, porém não tem permissão para acessar o painel de administração do site.
+Para que um usuário faça parte do grupo de professores, um administrador, através do painel de administração do site, deve atribuir o grupo de professores para esse usuário.
+Somente um administrador pode realizar tal modificação.
+
+### Administrador
+
+Um administrador tem acesso total as funcionalidades do site.
+Ao logar pela interface do site, um novo campo no menu de navegação é exibido com o nome de 'Administração'.
+Ele dá acesso ao painel de administração do Django. É lá que alterações de permissões, como a de colocar um usuário no grupo de professores, serão feitas.
+Somente um administrador, nativamente, tem a permissão de acesso dessa página, e somente ele pode adicionar outros administradores.
+
 ## Configuração do Ambiente
 
 - [x] Instalar o Python.
@@ -41,36 +70,36 @@ Os requisitos do projeto estão listados no arquivo `requirements.txt`. Para ins
 
 ### Models
 
-- [ ] Criar o modelo Instrumento.
-- [ ] Criar o modelo Musico.
-- [ ] Criar o modelo Apresentacao.
-- [ ] Criar o modelo Sinfonia.
-- [ ] Criar o modelo Orquestra.
+- [x] Criar o modelo Instrumento.
+- [x] Criar o modelo Musico.
+- [x] Criar o modelo Apresentacao.
+- [x] Criar o modelo Sinfonia.
+- [x] Criar o modelo Orquestra.
 
 #### Instrumentos
 
-- [ ] Implementar views para adicionar, visualizar, editar e excluir instrumentos.
-- [ ] Configurar as URLs correspondentes para as views de instrumentos.
+- [x] Implementar views para adicionar, visualizar, editar e excluir instrumentos.
+- [x] Configurar as URLs correspondentes para as views de instrumentos.
 
 #### Músicos
 
-- [ ] Implementar views para adicionar, visualizar, editar e excluir músicos.
-- [ ] Configurar as URLs correspondentes para as views de músicos.
+- [x] Implementar views para adicionar, visualizar, editar e excluir músicos.
+- [x] Configurar as URLs correspondentes para as views de músicos.
 
 #### Apresentações
 
-- [ ] Implementar views para adicionar, visualizar, editar e excluir apresentações.
-- [ ] Configurar as URLs correspondentes para as views de apresentações.
+- [x] Implementar views para adicionar, visualizar, editar e excluir apresentações.
+- [x] Configurar as URLs correspondentes para as views de apresentações.
 
 #### Sinfonias
 
-- [ ] Implementar views para adicionar, visualizar, editar e excluir sinfonias.
-- [ ] Configurar as URLs correspondentes para as views de sinfonias.
+- [x] Implementar views para adicionar, visualizar, editar e excluir sinfonias.
+- [x] Configurar as URLs correspondentes para as views de sinfonias.
 
 #### Orquestras
 
-- [ ] Implementar views para adicionar, visualizar, editar e excluir orquestras.
-- [ ] Configurar as URLs correspondentes para as views de orquestras.
+- [x] Implementar views para adicionar, visualizar, editar e excluir orquestras.
+- [x] Configurar as URLs correspondentes para as views de orquestras.
 
 ## Contribuição
 
