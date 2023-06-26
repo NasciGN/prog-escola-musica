@@ -1,3 +1,4 @@
+from django import forms
 from django.urls import reverse_lazy
 from core.models import Musico
 from django.shortcuts import redirect
@@ -19,10 +20,18 @@ class MusicoCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     login_url='login'
     permission_required = 'core.add_musico'
 
+class MusicoForm(forms.ModelForm):
+    class Meta:
+        model = Musico
+        fields = ['nome', 'nacionalidade', 'dt_nascimento']
+        widgets = {
+            'dt_nascimento': forms.DateInput(attrs={'type': 'date'}),
+        }
+
 class MusicoUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Musico
+    form_class = MusicoForm
     template_name = 'musico/criar_musico.html'
-    fields = ['nome', 'nacionalidade', 'dt_nascimento']
     success_url = reverse_lazy('musico:read')
     slug_field = 'id'
     login_url='login'

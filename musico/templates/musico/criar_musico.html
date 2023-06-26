@@ -27,9 +27,13 @@
                 <div class="form-group">
                     <label for="{{ form.dt_nascimento.id_for_label }}">Dt. Nascimento</label>
                     <input class="form-control" id="{{ form.dt_nascimento.id_for_label }}" type="date"
-                    placeholder="01/01/2023" name="{{ form.dt_nascimento.html_name }}" {% if form.dt_nascimento.value %}
-                    value="{{ form.dt_nascimento.value }}" {% endif %}>
+                        placeholder="01/01/2023" name="{{ form.dt_nascimento.html_name }}"
+                        {% if form.instance.dt_nascimento %}
+                            value="{{ form.instance.dt_nascimento|date:'Y-m-d' }}"
+                        {% endif %}>
                 </div>
+                
+                
 
                 <div class="d-flex justify-content-between align-items-center">
                     <a href="{% url 'musico:read' %}" class="btn btn-danger ml-3 cancelar-btn">Cancelar</a>
