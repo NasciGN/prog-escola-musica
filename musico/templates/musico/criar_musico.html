@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="{{ form.dt_nascimento.id_for_label }}">Dt. Nascimento</label>
                     <input class="form-control" id="{{ form.dt_nascimento.id_for_label }}" type="date"
-                    placeholder="01/01/2023" name="{{ form.dt_nascimento.html_name }}" {% if form.nome.value %}
+                    placeholder="01/01/2023" name="{{ form.dt_nascimento.html_name }}" {% if form.dt_nascimento.value %}
                     value="{{ form.dt_nascimento.value }}" {% endif %}>
                 </div>
 
