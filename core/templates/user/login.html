@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Entre{% endblock %}
+
+
+{% block content %}
+
+<div class="container mx-auto max-w-3xl">
+     <div class="mx-4">
+        <h1 class="flex space-x-2 items-center text-3xl my-4 mb-8">Login</h1>
+     </div>
+
+
+    <div class="mx-4">
+
+        <form action="." method="post">
+            {% csrf_token %}
+
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900" for="{{ form.username.id_for_label }}">
+                    {{ form.username.label_tag }}
+                </label>
+                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-1/3 p-2.5"
+                       id="{{ form.username.id_for_label }}" type="text" placeholder="Digite seu nome de usuário"
+                       name="{{ form.username.html_name }}" {% if form.username.value %}value="{{ form.username.value }}" {% endif %}>
+                {% if form.username.errors %}
+                <div class="text-red-500 text-xs italic mt-1">{{ form.username.errors.as_text }}</div>
+                {% endif %}
+
+                <div class="mt-2 text-xs text-zinc-400">{{ form.username.help_text }}</div>
+
+            </div>
+
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900" for="{{ form.password.id_for_label }}">
+                    {{ form.password.label_tag }}
+                </label>
+                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-1/3 p-2.5"
+                       id="{{ form.password.id_for_label }}" type="password" placeholder="Digite sua senha"
+                       name="{{ form.password.html_name }}">
+                {% if form.password.errors %}
+                <div class="text-red-500 text-xs italic mt-1">{{ form.password.errors.as_text }}</div>
+                {% endif %}
+
+                <div class="mt-2 text-xs text-zinc-400">{{ form.password.help_text }}</div>
+
+            </div>
+
+            <div class="flex items-center space-x-4">
+                 <a href="{% url 'registrar' %}">Não tem uma conta?</a>
+
+                <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                        type="submit">
+                    Entrar
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
