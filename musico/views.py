@@ -11,25 +11,30 @@ class MusicoListView(LoginRequiredMixin, ListView):
     context_object_name = 'musicos'
     login_url='login'
 
-class MusicoCreateView(LoginRequiredMixin, CreateView):
+class MusicoCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Musico
     template_name = 'musico/criar_musico.html'
     fields = ['nome', 'nacionalidade', 'dt_nascimento']
     success_url = reverse_lazy('musico:read')
     login_url='login'
+    permission_required = 'core.add_musico'
 
-class MusicoUpdateView(LoginRequiredMixin, UpdateView):
+class MusicoUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Musico
     template_name = 'musico/criar_musico.html'
     fields = ['nome', 'nacionalidade', 'dt_nascimento']
     success_url = reverse_lazy('musico:read')
     slug_field = 'id'
     login_url='login'
+    permission_required = 'core.change_musico'
 
-class MusicoDeleteView(LoginRequiredMixin, DeleteView):
+
+class MusicoDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Musico
     success_url = reverse_lazy('musico:read')
     login_url='login'
+    permission_required = 'core.delete_musico'
+
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
 

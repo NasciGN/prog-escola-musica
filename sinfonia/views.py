@@ -10,26 +10,31 @@ class SinfoniaListView(LoginRequiredMixin, ListView):
     template_name = 'sinfonia/tabela_sinfonia.html'
     context_object_name = 'sinfonias'
     login_url='login'
+    
 
-class SinfoniaCreateView(LoginRequiredMixin, CreateView):
+class SinfoniaCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     model = Sinfonia
     template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor',]
     success_url = reverse_lazy('sinfonia:read')
     login_url='login'
+    permission_required = 'core.add_sinfonia'
 
-class SinfoniaUpdateView(LoginRequiredMixin, UpdateView):
+class SinfoniaUpdateView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Sinfonia
     template_name = 'sinfonia/criar_sinfonia.html'
     fields = ['nome', 'compositor']
     success_url = reverse_lazy('sinfonia:read')
     slug_field = 'id'
     login_url='login'
+    permission_required = 'core.change_sinfonia'
 
-class SinfoniaDeleteView(LoginRequiredMixin, DeleteView):
+class SinfoniaDeleteView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Sinfonia
     success_url = reverse_lazy('sinfonia:read')
     login_url='login'
+    permission_required = 'core.delete_sinfonia'
+    
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
 
