@@ -6,10 +6,10 @@ Este é um projeto de um sistema web desenvolvido em Django e Bootstrap/HTML, cr
 
 ## Funcionalidades
 
-- Adicionar, visualizar, editar e excluir instrumentos musicais.
+- Adicionar, visualizar, editar e excluir instrumentos musicais, atribuindo um músico para utiliza-lo temporariamente.
 - Gerenciar músicos, incluindo a associação com um instrumento específico.
-- Registrar e gerenciar apresentações musicais, incluindo a data e o local.
-- Criar sinfonias e associá-las a orquestras específicas.
+- Registrar e gerenciar apresentações musicais, incluindo a data e hora.
+- Criar sinfonias e associá-las ao seu compositor.
 - Gerenciar orquestras, incluindo a adição e remoção de músicos, apresentações e sinfonias.
 
 ***
