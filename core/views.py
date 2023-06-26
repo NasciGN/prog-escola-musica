@@ -8,6 +8,12 @@ from django.contrib import messages
 class IndexView(TemplateView):
     template_name = "index.html"
 
+    
+class SobreView(TemplateView):
+    template_name = "sobre.html"
+
+
+
 def registrar(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)

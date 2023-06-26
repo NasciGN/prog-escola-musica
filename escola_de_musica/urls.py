@@ -16,6 +16,7 @@ urlpatterns = [
     path('registrar/', views.registrar, name='registrar'),
     path('login/', views.logar, name='login'),
     path('logout/', view.LogoutView.as_view(next_page='home'), name='logout'),
+    path('sobre/', views.SobreView.as_view(), name='sobre'),
 ] 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
