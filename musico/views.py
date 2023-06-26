@@ -3,7 +3,7 @@ from core.models import Musico
 from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 class MusicoListView(LoginRequiredMixin, ListView):
     model = Musico
