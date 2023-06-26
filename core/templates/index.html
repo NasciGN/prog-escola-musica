@@ -102,7 +102,8 @@
 
 <section class="form_1 pt-120 pb-120">
   <div class="container px-xl-0">
-    <form action="form-handler.php" method="post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+    <form method="post" class="bg-light mx-auto mw-430 radius10 pt-40 px-50 pb-30">
+      {% csrf_token %}
       <h2 class="mb-40 small text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
         Entraremos em contato
       </h2>
@@ -120,8 +121,8 @@
           Eu concordo com os termos de serviço
         </label>
       </div>
-      <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-        <button class="mt-25 btn action-1 w-full">Salvar</button>
+      <div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600"> 
+        <a href="#" class="mt-25 btn action-1 w-full">Salvar</a>
       </div>
       <div class="mt-50 hr bg-gray h-1" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750"></div>
       <div class="mt-25 f-18 medium color-heading text-center" data-aos-duration="600" data-aos="fade-down"
